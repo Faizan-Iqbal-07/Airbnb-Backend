@@ -59,7 +59,6 @@ const fileFilter = (req, file, cb) => {
   if (
     file.mimetype === 'image/png' ||
     file.mimetype === 'image/jpg' ||
-    file.mimetype === 'image/webp' ||
     file.mimetype === 'image/jpeg'
   ) {
     cb(null, true);
@@ -111,6 +110,7 @@ app.use(errorsController.pageNotFound);
 // DB + Server
 mongoose.connect(DB_PATH)
   .then(() => {
+    console.log("MongoDB Connected");
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });
