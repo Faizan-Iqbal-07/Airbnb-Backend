@@ -86,7 +86,7 @@ exports.postEditHome = (req, res, next) => {
       }
 
       home.save()
-        
+
       res.redirect("/host/host-home-list");
     })
     .catch((err) => {
